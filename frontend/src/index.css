@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --aura-purple: #a855f7;
+  --aura-blue: #3b82f6;
+  --aura-pink: #ec4899;
+  --bg-dark: #030712;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Aura Background Effects */
+.aura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, #111827 0%, #030712 100%);
+}
+
+.aura-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: var(--aura-purple);
+  filter: blur(100px);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: move 20s infinite alternate;
+}
+
+.aura-blob.blue {
+  background: var(--aura-blue);
+  width: 600px;
+  height: 600px;
+  left: -100px;
+  top: -100px;
+  animation-delay: -5s;
+}
+
+.aura-blob.pink {
+  background: var(--aura-pink);
+  right: -100px;
+  bottom: -100px;
+  animation-delay: -10s;
+}
+
+@keyframes move {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(100px, 100px) scale(1.2); }
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, var(--aura-purple), var(--aura-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: #9ca3af;
+  margin-bottom: 32px;
+}
+
+/* Input Styles */
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--aura-purple);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, var(--aura-purple), var(--aura-pink));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Result Section */
+.result-area {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--glass-border);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.short-link-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.short-link-box a {
+  color: var(--aura-blue);
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.copy-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  width: auto;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
